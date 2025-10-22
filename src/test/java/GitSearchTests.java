@@ -12,7 +12,6 @@ class GitSearchTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://github.com/";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
         Configuration.pageLoadStrategy = "eager";
     }
     @Test
