@@ -17,7 +17,7 @@ public class RegistrationFormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        //        Configuration.holdBrowserOpen = true;
+//        Configuration.holdBrowserOpen = true;
         Configuration.pageLoadStrategy = "eager";
     }
     @Test
@@ -25,7 +25,8 @@ public class RegistrationFormTests {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove();");
         executeJavaScript("$('#fixedban').remove();");
-        $("#firstName").setValue("Arsentiy");
+
+        $("#firstName").setValue("Arsentiy");1
         $("#lastName").setValue("Vavilov");
         $("#userEmail").setValue("example@mail.com");
         $(".custom-control-label").click();
