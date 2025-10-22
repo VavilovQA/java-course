@@ -25,7 +25,7 @@ public class RegistrationFormTests {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove();");
         executeJavaScript("$('#fixedban').remove();");
-        $("#firstName").setValue("Arsentiy");
+        $("#firstName").setValue("Arsentiy");2
         $("#lastName").setValue("Vavilov");
         $("#userEmail").setValue("example@mail.com");
         $(".custom-control-label").click();
