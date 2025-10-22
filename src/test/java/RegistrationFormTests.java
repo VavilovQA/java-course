@@ -7,17 +7,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
-
 /**
  * @author Arsentiy Vavilov
  */
-public class RegistrationFormTests {
-
+class RegistrationFormTests {
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        //Configuration.holdBrowserOpen = true;
         Configuration.pageLoadStrategy = "eager";
     }
     @Test
