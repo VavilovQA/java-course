@@ -1,3 +1,5 @@
+package tests;
+
 import org.junit.jupiter.api.Test;
 import com.codeborne.selenide.Condition;
 import static com.codeborne.selenide.DragAndDropOptions.to;

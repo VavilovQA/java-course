@@ -9,7 +9,8 @@ repositories {
 dependencies {
     testImplementation (
             "com.codeborne:selenide:6.19.1",
-            "org.junit.jupiter:junit-jupiter:5.10.0")
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            "io.qameta.allure:allure-java-commons:2.26.0")
 }
 
 tasks.withType(JavaCompile) {
