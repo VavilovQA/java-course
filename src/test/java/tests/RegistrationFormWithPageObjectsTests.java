@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import utils.TestData;
 
 /**
  * @author Arsentiy Vavilov
@@ -9,33 +10,50 @@ import pages.RegistrationPage;
 class RegistrationFormWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     void successfulRegistrationTest() {
 
-        registrationPage.openPage().setFirstName("Ars").setLastName("Vavilov")
-                .setUserEmail("123@mail.com").setGender().setUserPhoneNumber("1234567890")
-                .setDateOfBirth("May", "1996").setSubjects("English").setHobbies("Sports")
-                .setPicture("front_test_picture.jpeg").setAddress("Ижевск, Школьная 48")
-                .setStateAndCity("Rajasthan", "Jaipur").clickSubmit()
+        registrationPage.openPage()
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setUserEmail(testData.userEmail)
+                .setGender(testData.userGender)
+                .setUserPhoneNumber(testData.userPhoneNumber)
+                .setDateOfBirth(testData.calendarDay, testData.calendarMonth, testData.calendarYear)
+                .setSubjects(testData.subject1, testData.subject2)
+                .setHobbies(testData.userHobbies)
+                .setPicture("img/" + testData.userPicture)
+                .setAddress(testData.userAddress)
+                .setStateAndCity(testData.userState, testData.userCity)
+                .clickSubmit()
 
-                .checkResult("Student Name", "Ars Vavilov")
-                .checkResult("Student Email", "123@mail.com").checkResult("Gender", "Male")
-                .checkResult("Mobile", "1234567890").checkResult("Date of Birth", "27 May,1996")
-                .checkResult("Subjects", "English").checkResult("Hobbies", "Sports")
-                .checkResult("Picture", "front_test_picture.jpeg")
-                .checkResult("Address", "Ижевск, Школьная 48")
-                .checkResult("State and City", "Rajasthan Jaipur");
+                .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Student Email", testData.userEmail)
+                .checkResult("Gender", testData.userGender)
+                .checkResult("Mobile", testData.userPhoneNumber)
+                .checkResult("Date of Birth", testData.calendarDay + " " + testData.calendarMonth + "," + testData.calendarYear)
+                .checkResult("Subjects", testData.subject1 + ", " + testData.subject2)
+                .checkResult("Hobbies", testData.userHobbies)
+                .checkResult("Picture", testData.userPicture)
+                .checkResult("Address", testData.userAddress)
+                .checkResult("State and City", testData.userState + " " + testData.userCity);
 
     }
 
     @Test
     void successfulRegistrationWhithMinimalRequiredFields() {
 
-        registrationPage.openPage().setFirstName("Oleg").setLastName("Mongol").setGender()
-                .setUserPhoneNumber("9533677638").clickSubmit()
+        registrationPage.openPage()
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.userGender)
+                .setUserPhoneNumber(testData.userPhoneNumber)
+                .clickSubmit()
 
-                .checkResult("Student Name", "Oleg Mongol").checkResult("Mobile", "9533677638");
+                .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Mobile", testData.userPhoneNumber);
     }
 
     @Test
@@ -44,5 +62,4 @@ class RegistrationFormWithPageObjectsTests extends TestBase {
         registrationPage.openPage().clickSubmit().checkTextOnPage();
 
     }
-
 }

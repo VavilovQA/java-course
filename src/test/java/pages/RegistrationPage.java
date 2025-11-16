@@ -22,7 +22,7 @@ public class RegistrationPage {
     private final SelenideElement
 
     firstName = $("#firstName"), lastName = $("#lastName"), userEmail = $("#userEmail"),
-            genderWrapper = $(".custom-control-label"), userNumber = $("#userNumber"),
+            genderWrapper = $("#genterWrapper"), userNumber = $("#userNumber"),
             calendarType = $("#dateOfBirthInput"), subjectsInput = $("#subjectsInput"),
             hobbiesWrapper = $("#hobbiesWrapper"), uploadPicture = $("#uploadPicture"),
             currentAddress = $("#currentAddress"), state = $("#state"),
@@ -61,9 +61,9 @@ public class RegistrationPage {
     }
 
     @Step("Выбираем пол")
-    public RegistrationPage setGender() {
+    public RegistrationPage setGender(String gender) {
 
-        genderWrapper.click();
+        genderWrapper.$(byText(gender)).click();
         return this;
     }
 
@@ -75,17 +75,18 @@ public class RegistrationPage {
     }
 
     @Step("Выбираем дату рождения")
-    public RegistrationPage setDateOfBirth(String month, String year) {
+    public RegistrationPage setDateOfBirth(String day, String month, String year) {
 
         calendarType.click();
-        calendarComponent.setDate(month, year);
+        calendarComponent.setDate(day, month, year);
         return this;
     }
 
     @Step("Выбираем предметы")
-    public RegistrationPage setSubjects(String subject) {
+    public RegistrationPage setSubjects(String subject1, String subject2) {
 
-        subjectsInput.setValue(subject).pressEnter();
+        subjectsInput.setValue(subject1).pressEnter();
+        subjectsInput.setValue(subject2).pressEnter();
         return this;
     }
 
