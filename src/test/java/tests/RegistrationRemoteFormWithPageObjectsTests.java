@@ -15,6 +15,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 /**
  * @author Arsentiy Vavilov
  */
@@ -44,6 +46,7 @@ public class RegistrationRemoteFormWithPageObjectsTests {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        closeWebDriver();
 
     }
 
