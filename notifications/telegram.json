@@ -1,10 +1,10 @@
 {
   "base": {
-    "project": "some project",
+    "project": "${JOB_BASE_NAME}",
     "environment": "some env",
     "comment": "some comment",
-    "reportLink": "",
-    "language": "en",
+    "reportLink": "${BUILD_URL}",
+    "language": "ru",
     "messenger": "telegram",
     "allureFolder": "build/allure-results/",
     "enableChart": true
