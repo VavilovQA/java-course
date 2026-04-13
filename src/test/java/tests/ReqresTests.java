@@ -3,7 +3,6 @@ package tests;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.restassured.RestAssured;
-import io.restassured.filter.cookie.CookieFilter;
 
 import java.util.Random;
 import static io.restassured.RestAssured.given;
